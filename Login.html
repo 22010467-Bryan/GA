@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <div class="logo">
+      <a href="Homepage.html">TrustFin</a>
+      <img src="https://www.uob.com.sg/assets/web-resources/personal/images/customer-service/pib-tmrw/account-management-and-security/masthead/lowpriomasthead.jpg" alt="TrustFin">
+    </div>
+    <ul>
+      <li><a href="Login.html">iBanking</a></li>
+    </ul>
+  </nav>
+
+  <section class="login-section">
+    <h2>Login TrustFin Account</h2>
+    <form id="login-form" action="2FA.html">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <div class="form-group"> 
+        <button type="submit">Login</button>
+      </div>
+
+    </form>
+    <div class="forgot-password">
+      <a href="#">Forgot Password?</a>
+      </div>
+    </form>
+  </section>
+
+  <footer>
+    <nav>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Customer Service</a></li>
+        <li><a href="#">Investor relations</a></li>
+        <li><a href="#">Terms of use</a></li>
+        <li><a href="#">Privacy policy</a></li>
+      </ul>
+    </nav>
+    <p>&copy; 2022 TrustFin. All rights reserved.</p>
+  </footer>
+</body>
+</html>
+
+<style>
+    /* style.css */
+
+/* Navigation bar */
+nav {
+  background-color: #0072c6;
+  color: #fff;
+  padding: 10px;
+}
+
+nav .logo a {
+  font-size: 24px;
+  color: white;
+  text-decoration: none; /* Remove the underline */
+}
+
+
+img {
+  height: 100px;
+  width: 5;
+}
+
+nav ul {
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Login section */
+.login-section {
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+
+.login-section h2 {
+  color: #0072c6;
+}
+
+.login-section form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-section .form-group {
+  margin-bottom: 20px;
+}
+
+.login-section label {
+  font-weight: bold;
+}
+
+.login-section input[type="text"],
+.login-section input[type="password"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.login-section button[type="submit"] {
+  padding: 10px;
+  background-color: #0072c6;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+/* Footer */
+footer {
+  background-color: #0072c6;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+footer ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+footer ul li {
+  margin-left: 20px;
+}
+
+footer ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+  
+.login-section .forgot-password {
+  margin-top: 10px;
+  text-align: right;
+}
+
+.login-section .forgot-password a {
+  color: #0072c6;
+  text-decoration: none;
+}
+</style>
+
+
+<script>
+  // Get the form element
+  const form = document.getElementById('login-form');
+
+  // Add an event listener to the form's submit event
+  form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    // Get the input values
+    const usernameInput = document.getElementById('username');
+    const passwordInput = document.getElementById('password');
+
+    const username = usernameInput.value.trim();
+    const password = passwordInput.value.trim();
+
+    // Perform form validation
+    if (username === '' || password === '') {
+      alert('Please enter your username and password.');
+    } else {
+      // Redirect to the transaction page
+      form.submit(); // This will submit the form to the specified action URL
+    }
+  });
+</script>

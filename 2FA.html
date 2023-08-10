@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2FA Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <div class="logo">
+      <a href="Homepage.html">TrustFin</a>
+      <img src="https://www.uob.com.sg/assets/web-resources/personal/images/customer-service/pib-tmrw/account-management-and-security/masthead/lowpriomasthead.jpg" alt="TrustFin">
+    </div>
+    <ul>
+      <li><a href="Login.html">iBanking</a></li>
+    </ul>
+  </nav>
+
+  <section class="otp-section">
+    <h2>Enter 2FA</h2>
+    <form id="otp-form" action="Transaction.html">
+      <div class="form-group">
+        <label for="Pin">Enter Pin</label>
+        <input type="password" id="otp" name="otp" required>
+      </div>
+      <div class="form-group">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </section>
+
+  <footer>
+    <nav>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Customer Service</a></li>
+        <li><a href="#">Investor Relations</a></li>
+        <li><a href="#">Terms of Use</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+      </ul>
+    </nav>
+    <p>&copy; 2022 TrustFin. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+<style> 
+/* style.css */
+
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navigation bar */
+nav {
+  background-color: #0072c6;
+  color: #fff;
+  padding: 10px;
+}
+
+nav .logo a {
+  font-size: 24px;
+  color: white;
+  text-decoration: none; /* Remove the underline */
+}
+
+img {
+  height: 100px;
+  width: 150px;
+}
+
+nav ul {
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  margin-left: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* OTP section */
+.otp-section {
+  background-color: #f1f1f1;
+  padding: 20px;
+  text-align: center;
+}
+
+.otp-section h2 {
+  color: #0072c6;
+}
+
+.otp-section form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.otp-section .form-group {
+  margin-bottom: 20px;
+}
+
+.otp-section label {
+  font-weight: bold;
+}
+
+.otp-section input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.otp-section button[type="submit"] {
+  padding: 10px;
+  background-color: #0072c6;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+/* Footer */
+footer {
+  background-color: #0072c6;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+footer ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+footer ul li {
+  margin-left: 20px;
+}
+
+footer ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+</style>
+
+<script>
+document.getElementById("otp-form").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent form submission
+
+  // Get the entered OTP value
+  var otpInput = document.getElementById("otp").value;
+
+  // Validate the OTP
+  if (otpInput.length === 6 && /^\d+$/.test(otpInput)) { 
+    // Redirect to the transaction page
+    document.getElementById("otp-form").submit(); // This will submit the form to the specified action URL
+  } else {
+    // OTP is invalid, display an error message
+    if (otpInput.length > 6) {
+      alert("Invalid 2FA. Please enter a 6-digit number.");
+    } else {
+      alert("Invalid 2FA. Please try again.");
+    }
+  }
+});
+</script>
